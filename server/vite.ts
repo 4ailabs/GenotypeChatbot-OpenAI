@@ -1,6 +1,5 @@
 import { Express } from "express";
 import { createServer } from "vite";
-import path from "path";
 
 /**
  * Configura Vite para desarrollo con HMR
