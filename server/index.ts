@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Configuración de CORS para desarrollo y producción
-app.use((_, res, next) => {
+app.use((req, res, next) => {
   // En producción, configurar según el dominio de Vercel
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
