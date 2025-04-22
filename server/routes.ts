@@ -1,9 +1,8 @@
 import { Request, Response, Router } from "express";
-import { z } from "zod";
-import { ChatRequestSchema } from "../shared/schema";
-import { sendChatRequest } from "./openai-service";
-import { sendAssistantRequest } from "./openai-assistant";
-import { addMessage, clearMessages, getMessages } from "./storage";
+import { ChatRequestSchema } from "../shared/schema.js";
+import { sendChatRequest } from "./openai-service.js";
+import { sendAssistantRequest } from "./openai-assistant.js";
+import { addMessage, clearMessages, getMessages } from "./storage.js";
 
 // Crear el router de Express
 const router = Router();
@@ -11,7 +10,7 @@ const router = Router();
 /**
  * Endpoint para obtener todos los mensajes
  */
-router.get("/api/messages", (req: Request, res: Response) => {
+router.get("/api/messages", (_, res: Response) => {
   try {
     // Obtener mensajes del almacenamiento
     const messages = getMessages();
@@ -27,7 +26,7 @@ router.get("/api/messages", (req: Request, res: Response) => {
 /**
  * Endpoint para obtener información de modelos disponibles
  */
-router.get("/api/model-info", (req: Request, res: Response) => {
+router.get("/api/model-info", (_, res: Response) => {
   try {
     // Devolver información sobre modelos disponibles
     res.json({
@@ -103,7 +102,7 @@ router.post("/api/chat", async (req: Request, res: Response) => {
 /**
  * Endpoint para limpiar el historial de chat
  */
-router.delete("/api/messages", (req: Request, res: Response) => {
+router.delete("/api/messages", (_, res: Response) => {
   try {
     // Limpiar mensajes
     clearMessages();
