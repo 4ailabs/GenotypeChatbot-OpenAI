@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { ChatRequest, ChatResponse } from "../shared/schema";
+import { ChatRequest, ChatResponse } from "../shared/schema.js";
 
 // Inicializar el cliente de OpenAI con la API key del entorno
 const openai = new OpenAI({
