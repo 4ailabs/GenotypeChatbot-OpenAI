@@ -1,6 +1,5 @@
 // Serverless function entry point para Vercel
 import express from 'express';
-import { createServer } from 'http';
 import routes from '../server/routes.js';
 
 // Crear aplicación Express
@@ -26,12 +25,9 @@ app.use((req, res, next) => {
 app.use(routes);
 
 // Ruta de salud para verificar que el serverless function está funcionando
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (_, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
-
-// Crear servidor HTTP
-const server = createServer(app);
 
 // Exportar el handler para Vercel
 export default app;
