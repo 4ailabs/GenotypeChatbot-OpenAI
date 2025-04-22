@@ -20,33 +20,38 @@ Un chatbot avanzado especializado en nutrigenómica, suplementos y alimentos fun
 
 ## Guía de despliegue
 
-### 1. Despliegue en GitHub
-
-1. Crea un nuevo repositorio en GitHub
-2. Clona este proyecto localmente
-3. Configura tu repositorio remoto:
+### 1. Configuración inicial
 
 ```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/username/repo-name.git
-git push -u origin main
+# Clonar el repositorio
+git clone https://github.com/4ailabs/GenotypeChatbot-OpenAI.git
+cd GenotypeChatbot-OpenAI
+
+# Instalar dependencias
+npm install
+
+# Crear archivo .env basado en el ejemplo
+cp .env.example .env
+# Editar .env y añadir tu API key de OpenAI
 ```
 
-### 2. Despliegue en Vercel
+### 2. Desarrollo local
+
+```bash
+# Iniciar en modo desarrollo
+npm run dev
+```
+
+### 3. Despliegue en Vercel
 
 1. Inicia sesión en [Vercel](https://vercel.com)
-2. Selecciona "Import Project" y elige tu repositorio de GitHub
-3. Mantén la configuración predeterminada y añade las siguientes variables de entorno:
-
+2. Selecciona "Import Project" y elige tu repositorio
+3. Añade las siguientes variables de entorno:
    - `OPENAI_API_KEY`: Tu clave API de OpenAI
    - `OPENAI_ASSISTANT_ID`: El ID de tu asistente especializado (opcional)
-
 4. Haz clic en "Deploy"
 
-### 3. Integración con Framer
+### 4. Integración con Framer
 
 #### Opción 1: Usar el componente React directamente
 
@@ -79,29 +84,16 @@ import GenoTypeHunterChatbot from './path/to/FramerChatbot'
 https://tu-api-vercel.vercel.app
 ```
 
-## Variables de entorno
+## Solución de problemas comunes
 
-Estas variables deben configurarse en el entorno de desarrollo y producción:
+- **Error 404 en Vercel**: Verifica que las rutas API estén correctamente configuradas y que la estructura del proyecto coincida con lo que Vercel espera.
+- **Problemas de CORS**: Asegúrate de que la configuración CORS permita solicitudes desde el dominio de tu frontend.
+- **API Key inválida**: Verifica que la variable de entorno `OPENAI_API_KEY` esté configurada correctamente y tenga saldo disponible.
+
+## Variables de entorno
 
 - `OPENAI_API_KEY`: Clave API para autenticación con OpenAI (obligatoria)
 - `OPENAI_ASSISTANT_ID`: ID del asistente especializado (opcional)
-
-## Configuración del componente para Framer
-
-El componente `GenoTypeHunterChatbot` acepta las siguientes propiedades:
-
-| Propiedad | Tipo | Descripción | Valor predeterminado |
-|-----------|------|-------------|---------------------|
-| title | string | Título mostrado en el encabezado | "GenoType Hunter IA" |
-| accentColor | string | Color principal para botones | "#4F46E5" |
-| headerColor | string | Color del encabezado | "#4F46E5" |
-| userMessageColor | string | Color de fondo para mensajes del usuario | "#E9F5FE" |
-| assistantMessageColor | string | Color de fondo para mensajes del asistente | "#F3F4F6" |
-| height | number | Altura del componente en píxeles | 600 |
-| width | number | Ancho del componente en píxeles | 400 |
-| baseUrl | string | URL base para la API (vacía para URL relativa) | "" |
-| showModelSelector | boolean | Mostrar selector de modelos | false |
-| defaultPlaceholder | string | Texto placeholder en el input | "Escribe tu pregunta aquí..." |
 
 ## Soporte y contacto
 
