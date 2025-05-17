@@ -57,7 +57,7 @@ export async function getModelInfo() {
       { id: "gpt-3.5-turbo", name: "GPT-3.5 Turbo" },
       { id: "gpt-4-turbo", name: "GPT-4 Turbo" },
       { id: "gpt-4o", name: "GPT-4o" },
-      { id: "assistant", name: "Asistente Nutrigenómica" }
+      { id: "assistant", name: "LSP Insight System" }
     ]
   };
 }
